@@ -28,7 +28,8 @@ fpath+=("$HOME/.zsh/pure")
 #ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 #ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 #ZSH_THEME="robbyrussell"
-autoload -U promptinit; promptinit; prompt pure
+autoload -U promptinit; promptinit
+prompt pure
 source $ZSH/oh-my-zsh.sh
 plugins=(
     archlinux
@@ -165,10 +166,13 @@ alias open='rifle'
 alias gs='git status'
 alias gd='git diff --diff-filter=M'
 alias e='exit'
-alias vim='nvim'
+#alias vim='nvim'
 alias scim='sc-im'
 alias grep='rg'
 alias pacman='sudo pacman'
+alias restic-backup='restic backup -r /mnt/vault/restic-backups -e /home/sam/git-clones -e /home/sam/.cache /home/sam'
+
+
 function dotblast {
     dotcommit "$1"
     dotpush
@@ -184,6 +188,12 @@ function clone {
 	echo ${pwd_list[-1]}
 	git clone $1 $HOME/git-repos/${pwd_list[-1]}
 }
+function vp {
+	volt profile set $1
+}
+alias vd='volt profile set default'
+
+
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PATH=$PATH:/usr/local/go/bin
@@ -199,12 +209,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 source $HOME/applications
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sam/applications/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/applications/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/sam/applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/applications/google-cloud-sdk/completion.zsh.inc'; fi
 #export PATH="$HOME/.jenv/bin:$PATH"
 #eval "$(jenv init -)"
 
@@ -250,3 +254,10 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh 
 #powerline-daemon -q
 #. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/sam/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/sam/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/completion.zsh.inc'; fi

@@ -11,15 +11,12 @@ general {
 order += "load"
 #order += "cpu_temperature 0"
 order += "disk /"
-order += "disk /home"
-order += "ethernet enp4s0"
-#order += "wireless wlp2s0"
 order += "volume master"
 #order += "battery 1"
 order += "tztime local"
 
 load {
-        format = "<span background='#f59335'>  %5min Load </span>"
+        format = "<span background='#f59335'> %5min Load </span>"
 }
 
 cpu_temperature 0 {
@@ -31,9 +28,6 @@ disk "/" {
         format = "<span background='#fec7cd'>  %free Free </span>"
 }
 
-disk "/home" {
-        format = "<span background='#a1d569'> ⌂%free Free </span>"
-}
 
 ethernet enp1s0 {
         format_up = "<span background='#88c0d0'>  %ip </span>"
