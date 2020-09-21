@@ -24,12 +24,13 @@ setopt HIST_VERIFY
 
 export ZSH="$HOME/.oh-my-zsh"
 fpath+=("$HOME/.zsh/pure")
-#PROMPT='%{$fg[green]%}λ %{$reset_color%}'
+#PROMPT='%{$fg[blue]%} λ %{$reset_color%}'
 #ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 #ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 #ZSH_THEME="robbyrussell"
 autoload -U promptinit; promptinit
 prompt pure
+
 source $ZSH/oh-my-zsh.sh
 plugins=(
     archlinux
@@ -75,7 +76,7 @@ bindkey '^r' history-incremental-search-backward
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-WERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
+#WERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%f"
 # Visual customisation of the second prompt line
 
 # include Z, yo
@@ -134,12 +135,11 @@ function aws-generate-keys {
 #export PATH="$GOENV_ROOT/bin:$PATH"
 #eval "$(goenv init -)"
 source /home/sam/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+. ~/applications/z.sh
 
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
-alias dotfiles='/usr/bin/git --git-dir=/home/sam/.dotfiles/ --work-tree=/home/sam'
 alias dockers='sudo docker'
 alias apminstall='sudo apt install'
 function dotdiff {
@@ -156,6 +156,7 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias shit='fuck'
 alias sod='fuck'
+alias vim='nvim'
 alias cl='clear ; ls ' #clear and run subsequent command 
 alias c='clear'
 alias lsz='ls --size'
@@ -261,3 +262,6 @@ if [ -f '/home/sam/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/google-cl
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/sam/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+source .secrets

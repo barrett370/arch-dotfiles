@@ -10,8 +10,8 @@ floating_modifier $super
 
 #autostart
 #exec --no-startup-id hsetroot -center ~/.wallpaper.jpg
-exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -CG --config /home/sam/.config/i3/compton.conf
+#exec --no-startup-id xsettingsd &
+exec --no-startup-id picom --config /home/sam/.config/picom/config.conf
 exec --no-startup-id nm-applet
 exec --no-startup-id nitrogen --restore
 # start a terminal
@@ -19,13 +19,14 @@ bindsym $super+Return exec alacritty
 
 # start dmenu (a program launcher)
 #bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
-bindsym $super+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
+bindsym $super+space exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8' -config /home/sam/.config/rofi/config.rasi
 #bindsym $super+space exec dmenu_run
 
-bindsym $alt+Tab exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 8'
+bindsym $alt+Tab exec rofi -lines 12 -padding 18 -width 60 -location 0 -show window -sidebar-mode -columns 3 -font 'Noto Sans 8' -config /home/sam/.config/rofi/config.rasi
+
 # common apps keybinds
 bindsym Print exec flameshot gui
-bindsym Ctrl+$alt+l exec i3lock -i ~/.wallpaper.jpg
+bindsym Ctrl+$alt+l exec dm-tool switch-to-greeter
 bindsym $super+Shift+w exec firefox
 
 
@@ -177,5 +178,10 @@ focus_follows_mouse no
 
 
 bindsym $alt+Shift exec setxkbmap gb,us -option 'grp:alt_shift_toggle'
+
+gaps inner 10
+gaps outer 0
+smart_gaps on
+
 
 

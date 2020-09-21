@@ -1,11 +1,7 @@
-theme = "modern"
-icons = "awesome"
+theme = "slick"
+icons = "awesome5"
  
-#[[block]]
-#block = "weather"
-#format = "{weather} ({location}) {temp}°, {wind} m/s {direction}"
-#service = { name = "openweathermap", api_key = "6eb5d7aa49de7a3fb5dcdad64f0be388", city_id = "2646914", units = "metric" }
- 
+
 [[block]]
 block = "temperature"
 collapsed = false
@@ -30,20 +26,30 @@ interval = 1
 
 [[block]]
 block = "pacman"
-interval = 500
+interval = 60
 format = "{pacman} + {aur} = {both} updates available"
 format_singular = "{both} update available"
 format_up_to_date = "system up to date"
 critical_updates_regex = "(linux| linux-lts| linux-zen)"
 aur_command = "yay -Qu"
 
+[[block]]
+block = "music"
+player = "spotify"
+buttons = ["play", "next"]
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "weather"
+format = "{weather} ({location}) {temp}°"
+service = { name = "openweathermap", api_key = "6eb5d7aa49de7a3fb5dcdad64f0be388", city_id = "2646914", units = "metric" }
 
 [[block]]
 block = "time"
 interval = 60
-format = "%a %d/%m %R"
- 
-[[block]]
-block = "sound"
+format = "%a %d/%m %r"
+
  
  
