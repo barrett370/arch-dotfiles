@@ -35,7 +35,7 @@ aur_command = "yay -Qu"
 
 [[block]]
 block = "music"
-player = "spotify"
+player = "spotifyd"
 buttons = ["play", "next"]
 
 [[block]]

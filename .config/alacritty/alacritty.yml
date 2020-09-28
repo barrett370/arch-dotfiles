@@ -14,7 +14,6 @@
 
 shell:
   program: /bin/zsh
-  program: tmux
   
    
 
