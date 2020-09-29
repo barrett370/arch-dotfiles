@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 "Completions
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
-
+Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 
@@ -29,6 +29,7 @@ call plug#end()
 
 
 syntax enable
+highlight link CocFloating markdown
 set number relativenumber
 set hlsearch
 set ignorecase

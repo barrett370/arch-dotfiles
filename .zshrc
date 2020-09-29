@@ -32,26 +32,30 @@ autoload -U promptinit; promptinit
 prompt pure
 
 source $ZSH/oh-my-zsh.sh
-plugins=(
-    archlinux
-    cp
-    docker 
-    git
-    github
-    pip
-    pipenv
-    pyenv
-    repo
-    tmux 
-    tmuxinator
-    vi-mode
-    virtualenv
-    vundle
-    z
-    zsh-autosuggestions
-    history-substring-search
-    zsh-syntax-highlighting
-)	
+
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins.txt
+
+#plugins=(
+#    archlinux
+#    cp
+#    docker 
+#    git
+#    github
+#    pip
+#    pipenv
+#    pyenv
+#    repo
+#    tmux 
+#    tmuxinator
+#    vi-mode
+#    virtualenv
+#    vundle
+#    z
+#    zsh-autosuggestions
+#    history-substring-search
+#    zsh-syntax-highlighting
+#)	
 
 bindkey -v
 bindkey -M vicmd v edit-command-line
@@ -134,14 +138,13 @@ function aws-generate-keys {
 #export GOENV_ROOT="$HOME/.goenv"
 #export PATH="$GOENV_ROOT/bin:$PATH"
 #eval "$(goenv init -)"
-source /home/sam/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-. ~/applications/z.sh
+#source /home/sam/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#. ~/applications/z.sh
 
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
-alias zathura='devour zathura'
-alias feh='devour feh'
+alias xem='vim /home/sam/.xmonad/xmonad.hs'
 alias dockers='sudo docker'
 alias apminstall='sudo apt install'
 function dotdiff {
@@ -267,3 +270,9 @@ if [ -f '/home/sam/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/goo
 
 
 source .secrets
+[ -f "/home/sam/.ghcup/env" ] && source "/home/sam/.ghcup/env" # ghcup-env
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.10/gems/vagrant-2.2.10/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)
