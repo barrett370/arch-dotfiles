@@ -140,6 +140,8 @@ source /home/sam/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
+alias zathura='devour zathura'
+alias feh='devour feh'
 alias dockers='sudo docker'
 alias apminstall='sudo apt install'
 function dotdiff {
