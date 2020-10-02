@@ -87,7 +87,7 @@ filetype off                  " required
 #. ~/.scripts/z.sh
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin"
+export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin:$HOME/.local/bin"
 #eval "$(rbenv init -)"
 export PATH=$PATH:~/.scripts/:~/.keys/:~/applications
 # opam configuration
