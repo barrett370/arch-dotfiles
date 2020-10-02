@@ -1,0 +1,3 @@
+#!/bin/bash
+
+nvcc -I /usr/local/cuda-10.1/samples/common/inc -g -G $1 -o $2 

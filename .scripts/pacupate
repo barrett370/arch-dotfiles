@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pac_count=$(pacman -Qu | wc -l)
+aur_count=$(yay -Pu | wc -l)
+
+echo $pac_count + $aur_count
