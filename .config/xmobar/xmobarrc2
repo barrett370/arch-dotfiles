@@ -17,15 +17,15 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
        , iconRoot = "/home/sam/.xmonad/xpm/"  -- default: "."
        , commands = [
                     -- Time and date
-                      Run Date "<fn=1>\xf133</fn>  %b %d %Y - %H:%M " "date" 60
+                      Run Date "<fn=1>\xf133 </fn>  %b %d %Y - %H:%M " "date" 60
                       -- Network up and down
-                    , Run Network "enp4s0" ["-t", "<fn=1>\xf0aa</fn>  <rx>kb  <fn=1>\xf0ab</fn>  <tx>kb"] 30
+                    , Run Network "enp4s0" ["-t", "<fn=1>\xf0aa </fn>  <rx>kb  <fn=1>\xf0ab </fn>  <tx>kb"] 30
                       -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=1>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 30
+                    , Run Cpu ["-t", "<fn=1>\xf108 </fn>  cpu: (<total>%)","-H","50","--high","red"] 30
                       -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=1>\xf233</fn>  mem: <used>M (<usedratio>%)"] 30
+                    , Run Memory ["-t", "<fn=1>\xf233 </fn>  mem: <used>M (<usedratio>%)"] 30
                       -- Disk space free
-                    , Run DiskU [("/", "<fn=1>\xf0c7</fn>  hdd: <free> free")] [] 60
+                    , Run DiskU [("/", "<fn=1>\xf0c7 </fn>  hdd: <free> free")] [] 60
                       -- Runs custom script to check for pacman updates.
                       -- This script is in my dotfiles repo in .local/bin.
 		    , Run Com "/home/sam/.scripts/pacupate" [] "pacupdate" 3600
@@ -38,5 +38,5 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <action=`xdotool key control+alt+g`><icon=haskell_20.xpm/> </action><fc=#666666>  |</fc> %UnsafeStdinReader% }{ <fc=#666666><fn=2></fn> </fc><fc=#b3afc2><fn=1></fn></fc><fc=#e1acff>%music%</fc><fc=#666666>  <fn=2>|</fn></fc> <fc=#FFB86C> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#FF5555> %memory% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#82AAFF> %disku% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#c3e88d> %enp4s0% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#e1acff><fn=1></fn>  %pacupdate% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#8BE9FD> %date% </fc><fc=#666666><fn=2></fn></fc>"
+       , template = " <action=`xdotool key control+alt+g`><icon=haskell_20.xpm/></action><fc=#666666>|</fc>%UnsafeStdinReader% }{<fc=#666666><fn=2></fn></fc><fc=#b3afc2><fn=1>  </fn></fc><fc=#e1acff> %music%</fc><fc=#666666>  <fn=2>|</fn></fc> <fc=#FFB86C> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc>  <fc=#FF5555> %memory% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#82AAFF> %disku% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#666666> <fn=2>|</fn></fc> <fc=#e1acff><fn=1>  </fn>  %pacupdate% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#8BE9FD> %date% </fc><fc=#666666><fn=2></fn></fc>"
        }

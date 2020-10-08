@@ -15,6 +15,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'junegunn/goyo.vim'
 Plug 'plasticboy/vim-markdown'
 
@@ -77,11 +78,13 @@ endif
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
+"
+"
+inoremap <silent><expr> <C-TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><C-S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -233,3 +236,9 @@ nnoremap <silent> <A-h> :bp<CR>
 let g:airline#extensions#tabline#enabled = 1
 set conceallevel=2
 let g:vim_markdown_math = 1 
+
+" Ultisnips
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

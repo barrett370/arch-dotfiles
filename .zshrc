@@ -236,22 +236,22 @@ function options() {
 
 
 
-
-PROMPT_COMMAND='prompt'
-precmd() { eval "$PROMPT_COMMAND" }
-function prompt()
-{
-    if [ ! $PIPENV_ACTIVE ]; then
-      if [ `pipenv --venv 2>/dev/null` ]; then
-        export PIPENV_INITPWD="$PWD"
-        pipenv shell
-      fi
-    elif [ $PIPENV_INITPWD ] ; then
-      cd "$PIPENV_INITPWD"
-      unset PIPENV_INITPWD
-    fi
-}
-
+#
+#PROMPT_COMMAND='prompt'
+#precmd() { eval "$PROMPT_COMMAND" }
+#function prompt()
+#{
+#    if [ ! $PIPENV_ACTIVE ]; then
+#      if [ `pipenv --venv 2>/dev/null` ]; then
+#        export PIPENV_INITPWD="$PWD"
+#        pipenv shell
+#      fi
+#    elif [ $PIPENV_INITPWD ] ; then
+#      cd "$PIPENV_INITPWD"
+#      unset PIPENV_INITPWD
+#    fi
+#}
+#
 
 
 eval "$(gh completion -s zsh)"
