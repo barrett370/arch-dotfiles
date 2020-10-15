@@ -1,5 +1,6 @@
 #!/bin/bash
 
+yay -Sy > /dev/null
 aur_count=$(yay -Qu | wc -l)
 
 echo $aur_count
