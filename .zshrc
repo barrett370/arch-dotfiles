@@ -28,7 +28,11 @@ fpath+=("$HOME/.zsh/pure")
 #ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 #ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 #ZSH_THEME="robbyrussell"
+#
+#
 autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL='λ'
+PURE_PROMPT_VICMD_SYMBOL='ν'
 prompt pure
 
 source $ZSH/oh-my-zsh.sh

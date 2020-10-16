@@ -26,7 +26,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
 		    , Run Com "/home/sam/.scripts/pacupate" [] "pacupdate" 240
                       -- The workspaces are 'clickable' in my configs.
                     , Run UnsafeStdinReader
-		    , Run Volume "default" "Master" [] 10
+		    , Run Volume "default" "Master" [] 5
                     ]
        , sepChar = "%"
        , alignSep = "}{"
