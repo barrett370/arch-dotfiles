@@ -149,6 +149,7 @@ function aws-generate-keys {
 #. ~/z.sh
 # Alii: 
 alias xem='vim /home/sam/.xmonad/xmonad.hs'
+alias vem='vim /home/sam/.config/nvim/init.vim'
 alias dockers='sudo docker'
 alias apminstall='sudo apt install'
 function dotdiff {

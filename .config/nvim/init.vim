@@ -25,6 +25,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf' 
+
 
 Plug 'cespare/vim-toml'
 
@@ -80,6 +82,9 @@ endif
 " other plugin before putting this into your config.
 "
 "
+"
+"
+"sd
 inoremap <silent><expr> <C-TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -90,8 +95,8 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 " Use <c-space> to trigger completion.
+" 
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
@@ -229,6 +234,10 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 nnoremap <silent> <A-l> :bn<CR>
 nnoremap <silent> <A-h> :bp<CR>
+
+" trigger fzf search
+nnoremap <silent> <A-space> :FZF<CR>
+nnoremap <silent> <leader><A-space> :FZF ~ <CR>
 
 
 " Airline config
