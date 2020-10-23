@@ -34,7 +34,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
                       -- Prints out the left side items such as workspaces, layout, etc.
                       -- The workspaces are 'clickable' in my configs.
                     , Run UnsafeStdinReader
-		    , Run Com "/home/sam/applications/spt-check/target/release/spt-check" [] "music" 60
+		    , Run Com "/home/sam/.scripts/nowPlaying" [] "music" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"

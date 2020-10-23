@@ -63,7 +63,7 @@
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
-    transparency = 0
+    transparency = 0.2
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -121,7 +121,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # browser for opening urls in context menu
-    browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/brave --new-window
 
 [frame]
     width = 0
@@ -181,47 +181,7 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order to find
 # fitting options for rules.
 
-#[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
-
-#[script-test]
-#    summary = "*script*"
-#    script = dunst_test.sh
-
 #[ignore]
-## This notification will not be displayed
-#    summary = "foobar"
-#    format = ""
-#
-#[signed_on]
-#    appname = Pidgin
-#    summary = "*signed on*"
-#    urgency = low
-#
-#[signed_off]
-#    appname = Pidgin
-#    summary = *signed off*
-#    urgency = low
-#
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#    format  = "%s "%b""
-#
-#[music]
-#    appname = Amarok
-#    summary = "Now playing"
-#    urgency = low
-#
-[ignore]
-	appname="Brave"
-	format = ""
-
-
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
+#	appname="Brave"
+#	format = ""
 #

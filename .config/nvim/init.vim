@@ -28,6 +28,9 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf' 
 
 
+"Plug 'JuliaEditorSupport/julia-vim'
+
+
 Plug 'cespare/vim-toml'
 
 call plug#end()
@@ -251,3 +254,9 @@ let g:vim_markdown_math = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+" Vimtex clean & compile command: doesnt work
+:command VimtexCCompile :exec 'VimtexCompile' | VimtexClean<CR>
+
+:let g:latex_to_unicode_auto = 1
