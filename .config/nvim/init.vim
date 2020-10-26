@@ -45,6 +45,12 @@ set smartcase
 set autoindent
 set showmatch
 
+"set soft tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 let g:python3_host_prog = '/home/sam/.venv/neovim3/bin/python3'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
