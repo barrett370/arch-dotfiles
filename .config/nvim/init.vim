@@ -25,6 +25,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/fzf' 
+
+Plug 'kristijanhusak/vim-carbon-now-sh'
+
+
+"Plug 'JuliaEditorSupport/julia-vim'
+
 
 Plug 'cespare/vim-toml'
 
@@ -40,11 +47,18 @@ set smartcase
 set autoindent
 set showmatch
 
+"set soft tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 let g:python3_host_prog = '/home/sam/.venv/neovim3/bin/python3'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
 autocmd FileType gitcommit setlocal spell spelllang=en_gb
+autocmd FileType tex setlocal spell spelllang=en_gb
 autocmd FileType md setlocal spell spelllang=en_gb
 
 "coc default settings
@@ -90,8 +104,8 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
 " Use <c-space> to trigger completion.
+" 
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
@@ -230,6 +244,12 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 nnoremap <silent> <A-l> :bn<CR>
 nnoremap <silent> <A-h> :bp<CR>
 
+" trigger fzf search
+nnoremap <silent> <A-space> :FZF<CR>
+nnoremap <silent> <leader><A-space> :FZF ~ <CR>
+
+"open nerdtree
+nnoremap <silent> <leader><tab> :NERDTree <CR>
 
 " Airline config
 "
@@ -242,3 +262,12 @@ let g:vim_markdown_math = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Vimtex clean & compile command: doesnt work
+:command VimtexCCompile :exec 'VimtexCompile' | VimtexClean<CR>
+
+:let g:latex_to_unicode_auto = 1
+
+
+let g:vimtex_fold_enabled =1
+

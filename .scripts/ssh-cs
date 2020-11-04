@@ -1,0 +1,43 @@
+#!/usr/bin/env abs
+
+
+cli = require('@cli')
+
+f get_user(){
+	`touch .user_name`
+	user_name = `cat .user_name`
+	if user_name == ""|| user_name == null {
+		echo("Please run 'ssh-cs set-user USERNAME' before running this command")
+		exit(1)
+	}
+	else{
+		echo("$user_name")
+		return user_name
+	}
+}
+
+@cli.cmd("lg", "connect to a machine in the lower ground labs", {})
+f lg(arguments, flags) {
+	machine_number = arguments[0]
+	user_name = get_user()
+	echo("Connecting you to lg04-$machine_number")
+	exec("ssh -t $user_name@tinky-winky.cs.bham.ac.uk ssh $user_name@cca-lg04-$machine_number")
+}
+
+@cli.cmd("ug", "connect to a machine in the upper ground labs", {})
+f ug(arguments, flags){
+	machine_number = arguments[0]
+	user_name = get_user()
+	echo("Connecting you to ug04-$machine_number")
+	exec("ssh -t $user_name@tinky-winky.cs.bham.ac.uk ssh $user_name@cca-ug04-$machine_number")
+
+}
+
+@cli.cmd("set-user", "set the username for future use", {})
+f set_user(arguments, flags){
+	user_name = arguments[0]
+	`echo  $user_name > .user_name`
+
+}
+
+cli.run()

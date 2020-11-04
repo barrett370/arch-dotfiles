@@ -1,0 +1,21 @@
+#!/bin/bash
+
+
+case $(file --mime-type "$@" -bL) in
+
+	video/* | audio/* | image/gif)
+		
+		devour mpv "$@"
+		;;
+	application/pdf)
+		
+		devour zathura "$@"
+		;;
+	image/*)
+		devour feh "$@"
+		;;
+	*)
+		echo "extend launch script"
+		exit 1
+		;;
+esac

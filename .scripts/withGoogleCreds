@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.keys/bot-host-253711-feef27f9a46e.json"
+
+exec $@

@@ -1,5 +1,6 @@
 #!/bin/bash
 
-aur_count=$(yay -Qu | wc -l)
+yay -Sy > /dev/null
+aur_count=$(yay -Qu | grep -v 'haskell' | wc -l)
 
 echo $aur_count

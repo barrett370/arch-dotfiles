@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.keys/voice-parser.json"
+
+exec $@

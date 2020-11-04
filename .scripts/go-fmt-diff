@@ -1,0 +1,24 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;034m'
+
+c=$(git diff --name-only | grep ".go" | wc -w | awk '{print $1}' )
+
+
+if [[ $c -ne 0 ]]
+then 
+    echo -e "${BLUE} found $c go files to format" 
+    for i in $(seq $c)
+    do 
+        file=$(git diff --name-only | grep ".go" | head -$i | tail -1) 
+        echo -e "${BLUE}formatting file: ${file}"
+        go fmt $file
+        goimports -w $file
+        echo -e "${GREEN} formatted"
+    done
+    echo -e "\n\n${GREEN} all files successfully formatted, be sure to check goimports spacing" 
+else 
+    echo -e "${RED}No files to format, exiting"
+fi 

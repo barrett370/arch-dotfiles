@@ -28,7 +28,11 @@ fpath+=("$HOME/.zsh/pure")
 #ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"
 #ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%} "
 #ZSH_THEME="robbyrussell"
+#
+#
 autoload -U promptinit; promptinit
+PURE_PROMPT_SYMBOL='λ'
+PURE_PROMPT_VICMD_SYMBOL='ν'
 prompt pure
 
 source $ZSH/oh-my-zsh.sh
@@ -87,7 +91,7 @@ filetype off                  " required
 #. ~/.scripts/z.sh
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin"
+export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin:$HOME/.local/bin"
 #eval "$(rbenv init -)"
 export PATH=$PATH:~/.scripts/:~/.keys/:~/applications
 # opam configuration
@@ -145,6 +149,7 @@ function aws-generate-keys {
 #. ~/z.sh
 # Alii: 
 alias xem='vim /home/sam/.xmonad/xmonad.hs'
+alias vem='vim /home/sam/.config/nvim/init.vim'
 alias dockers='sudo docker'
 alias apminstall='sudo apt install'
 function dotdiff {
@@ -236,22 +241,22 @@ function options() {
 
 
 
-
-PROMPT_COMMAND='prompt'
-precmd() { eval "$PROMPT_COMMAND" }
-function prompt()
-{
-    if [ ! $PIPENV_ACTIVE ]; then
-      if [ `pipenv --venv 2>/dev/null` ]; then
-        export PIPENV_INITPWD="$PWD"
-        pipenv shell
-      fi
-    elif [ $PIPENV_INITPWD ] ; then
-      cd "$PIPENV_INITPWD"
-      unset PIPENV_INITPWD
-    fi
-}
-
+#
+#PROMPT_COMMAND='prompt'
+#precmd() { eval "$PROMPT_COMMAND" }
+#function prompt()
+#{
+#    if [ ! $PIPENV_ACTIVE ]; then
+#      if [ `pipenv --venv 2>/dev/null` ]; then
+#        export PIPENV_INITPWD="$PWD"
+#        pipenv shell
+#      fi
+#    elif [ $PIPENV_INITPWD ] ; then
+#      cd "$PIPENV_INITPWD"
+#      unset PIPENV_INITPWD
+#    fi
+#}
+#
 
 
 eval "$(gh completion -s zsh)"
@@ -276,3 +281,13 @@ source /home/sam/.secrets
 fpath=(/opt/vagrant/embedded/gems/2.2.10/gems/vagrant-2.2.10/contrib/zsh $fpath)
 compinit
 # <<<<  Vagrant command completion (end)
+
+_direnv_hook() {
+  trap -- '' SIGINT;
+  eval "$("/usr/bin/direnv" export zsh)";
+  trap - SIGINT;
+}
+typeset -ag chpwd_functions;
+if [[ -z ${chpwd_functions[(r)_direnv_hook]} ]]; then
+  chpwd_functions=( _direnv_hook ${chpwd_functions[@]} )
+fi
