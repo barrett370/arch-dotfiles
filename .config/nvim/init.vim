@@ -27,6 +27,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf' 
 
+Plug 'kristijanhusak/vim-carbon-now-sh'
+
 
 "Plug 'JuliaEditorSupport/julia-vim'
 
@@ -56,6 +58,7 @@ let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
 
 autocmd FileType gitcommit setlocal spell spelllang=en_gb
+autocmd FileType tex setlocal spell spelllang=en_gb
 autocmd FileType md setlocal spell spelllang=en_gb
 
 "coc default settings
@@ -248,6 +251,8 @@ nnoremap <silent> <A-h> :bp<CR>
 nnoremap <silent> <A-space> :FZF<CR>
 nnoremap <silent> <leader><A-space> :FZF ~ <CR>
 
+"open nerdtree
+nnoremap <silent> <leader><tab> :NERDTree <CR>
 
 " Airline config
 "
@@ -266,3 +271,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 :command VimtexCCompile :exec 'VimtexCompile' | VimtexClean<CR>
 
 :let g:latex_to_unicode_auto = 1
+
+
+let g:vimtex_fold_enabled =1
+
