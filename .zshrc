@@ -200,7 +200,7 @@ function vp {
 alias vd='volt profile set default'
 
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PATH=$PATH:/usr/local/go/bin
 #export GOENV_ROOT="$HOME/.goenv"
@@ -269,7 +269,7 @@ if [ -f '/home/sam/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/google-cl
 if [ -f '/home/sam/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-source .secrets
+source /home/sam/.secrets
 [ -f "/home/sam/.ghcup/env" ] && source "/home/sam/.ghcup/env" # ghcup-env
 
 # >>>> Vagrant command completion (start)

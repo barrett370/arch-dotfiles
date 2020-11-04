@@ -15,12 +15,15 @@ Plug 'preservim/nerdcommenter'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
 Plug 'junegunn/goyo.vim'
 Plug 'plasticboy/vim-markdown'
 
-
+Plug 'roxma/vim-paste-easy'
+Plug 'lervag/vimtex'
+Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'
-
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 
 Plug 'cespare/vim-toml'
@@ -38,6 +41,8 @@ set autoindent
 set showmatch
 
 let g:python3_host_prog = '/home/sam/.venv/neovim3/bin/python3'
+let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
 
 autocmd FileType gitcommit setlocal spell spelllang=en_gb
 autocmd FileType md setlocal spell spelllang=en_gb
@@ -73,11 +78,13 @@ endif
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
+"
+"
+inoremap <silent><expr> <C-TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><C-S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -217,3 +224,21 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+" Buffer naviagion
+
+nnoremap <silent> <A-l> :bn<CR>
+nnoremap <silent> <A-h> :bp<CR>
+
+
+" Airline config
+"
+let g:airline#extensions#tabline#enabled = 1
+set conceallevel=2
+let g:vim_markdown_math = 1 
+
+" Ultisnips
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+aur_count=$(yay -Qu | wc -l)
+
+echo $aur_count
