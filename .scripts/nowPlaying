@@ -1,0 +1,4 @@
+#!/bin/bash
+
+
+spt-check get-currently-playing | sed 's/\\//g'

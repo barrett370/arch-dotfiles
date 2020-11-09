@@ -18,6 +18,8 @@ Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/goyo.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'joshdick/onedark.vim'
+
 
 Plug 'roxma/vim-paste-easy'
 Plug 'lervag/vimtex'
@@ -26,6 +28,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf' 
+Plug 'dracula/vim', { 'name': 'dracula' }
+
 
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
@@ -38,8 +42,12 @@ Plug 'cespare/vim-toml'
 call plug#end()
 
 
+" switch between colour schemes
+
+
 syntax enable
 highlight link CocFloating markdown
+
 set number relativenumber
 set hlsearch
 set ignorecase
@@ -94,6 +102,9 @@ endif
 " other plugin before putting this into your config.
 "
 "
+"
+"
+"sd
 inoremap <silent><expr> <C-TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -263,6 +274,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
+
 " Vimtex clean & compile command: doesnt work
 :command VimtexCCompile :exec 'VimtexCompile' | VimtexClean<CR>
 
@@ -270,4 +282,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
 let g:vimtex_fold_enabled =1
+nnoremap <esc><esc> :silent! nohls<cr>
 
+
+nnoremap <silent> <leader>tn :colorscheme default <CR>
+nnoremap <silent> <leader>td :colorscheme dracula<CR>
