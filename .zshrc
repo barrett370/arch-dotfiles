@@ -32,7 +32,7 @@ fpath+=("$HOME/.zsh/pure")
 #
 autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL='λ'
-PURE_PROMPT_VICMD_SYMBOL='ν'
+#PURE_PROMPT_VICMD_SYMBOL='ν'
 prompt pure
 
 source $ZSH/oh-my-zsh.sh
