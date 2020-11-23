@@ -287,3 +287,9 @@ nnoremap <esc><esc> :silent! nohls<cr>
 
 nnoremap <silent> <leader>tn :colorscheme default <CR>
 nnoremap <silent> <leader>td :colorscheme dracula<CR>
+
+" cursor settings
+
+set guicursor=i-ci:hor30-iCursor-blinkon100,n:ver40
+
+
