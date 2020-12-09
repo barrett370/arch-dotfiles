@@ -33,7 +33,7 @@ fpath+=("$HOME/.zsh/pure")
 autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL='λ'
 PURE_PROMPT_VICMD_SYMBOL='ν'
-prompt pure
+#prompt pure
 
 source $ZSH/oh-my-zsh.sh
 
@@ -291,3 +291,5 @@ typeset -ag chpwd_functions;
 if [[ -z ${chpwd_functions[(r)_direnv_hook]} ]]; then
   chpwd_functions=( _direnv_hook ${chpwd_functions[@]} )
 fi
+
+eval "$(starship init zsh)"

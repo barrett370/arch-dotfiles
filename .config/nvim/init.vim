@@ -17,6 +17,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'joshdick/onedark.vim'
 
@@ -287,3 +288,11 @@ nnoremap <esc><esc> :silent! nohls<cr>
 
 nnoremap <silent> <leader>tn :colorscheme default <CR>
 nnoremap <silent> <leader>td :colorscheme dracula<CR>
+
+let g:goyo_width=130
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+nnoremap <silent> <leader>g :Goyo <CR>
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!

@@ -1,0 +1,13 @@
+add_newline = true
+
+[character]
+success_symbol = "[λ](bold green) "
+error_symbol = "[λ](bold red) "
+vicmd_symbol = "[V](bold green) "
+
+[julia]
+symbol = "∴ "
+
+[rust]
+format = "via [⚙️ $version](red bold)"
+
