@@ -182,6 +182,9 @@ alias scim='sc-im'
 alias grep='rg'
 alias pacman='sudo pacman'
 alias restic-backup='restic backup -r /mnt/vault/restic-backups -e /home/sam/git-clones -e /home/sam/.cache /home/sam'
+alias ls='exa'
+alias la='exa -la'
+alias tree='exa -T | less'
 
 
 function dotblast {

@@ -42,6 +42,7 @@ Plug 'cespare/vim-toml'
 
 call plug#end()
 
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-python', 'coc-rls']
 
 " switch between colour schemes
 
