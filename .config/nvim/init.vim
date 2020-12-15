@@ -62,6 +62,10 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+"Escape terminal buffer
+:tnoremap <Esc> <C-\><C-n>
+
+
 let g:python3_host_prog = '/home/sam/.venv/neovim3/bin/python3'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'

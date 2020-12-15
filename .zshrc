@@ -36,10 +36,10 @@ PURE_PROMPT_SYMBOL='λ'
 prompt pure
 
 source $ZSH/oh-my-zsh.sh
-
+VIM_MODE_VICMD_KEY='^D'
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
-
+bindkey -rpM viins '<esc>'
 #plugins=(
 #    archlinux
 #    cp
@@ -61,8 +61,8 @@ antibody bundle < ~/.zsh_plugins.txt
 #    zsh-syntax-highlighting
 #)	
 
-bindkey -v
-bindkey -M vicmd v edit-command-line
+#bindkey -v
+#bindkey -M vicmd v edit-command-line
 export KEYTIMEOUT=1
 #bindkey '^P' up-history
 #bindkey '^N' down-history
@@ -103,39 +103,6 @@ export SSH_KEY_PUB=$HOME/.ssh/id_rsa.pub
 #eval $(thefuck --alias)
 
 
-function aws-profile {
-  profile=${1:-dev}
-  export AWS_PROFILE=$profile
-  export AWS_DEFAULT_PROFILE=$profile
-
-  region=${2:-eu-west-1}
-  export AWS_REGION=$region
-  export AWS_DEFAULT_REGION=$region
-
-  unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
-}
-
-function aws-setenv {
-  STS='{}'
-  if [ -f "$1" ]; then
-    STS=$(cat "$1")
-    AWS_SESSION_TOKEN=$(echo "$STS" | jq -r '.Credentials.SessionToken // 1')
-    export AWS_SESSION_TOKEN
-  else
-    unset AWS_SESSION_TOKEN
-  fi
-  AWS_ACCESS_KEY_ID=$(echo "$STS" | jq -r '.Credentials.AccessKeyId // 1')
-  AWS_SECRET_ACCESS_KEY=$(echo "$STS" | jq -r '.Credentials.SecretAccessKey // 1')
-  export AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY
-  unset AWS_PROFILE
-  unset AWS_DEFAULT_PROFILE
-}
-function aws-generate-keys {
-
-	aws-longboi.sh > /tmp/aws-longboi.keys
-	aws-setenv /tmp/aws-longboi.keys
-	rm /tmp/aws-longboi.keys
-}
 
 #export PATH="$GOENV_ROOT/bin:$PATH"
 ##eval "$(goenv init -)"
