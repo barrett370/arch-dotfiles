@@ -17,10 +17,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'joshdick/onedark.vim'
 
-
+Plug 'ervandew/supertab'
 Plug 'roxma/vim-paste-easy'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
@@ -64,6 +65,13 @@ set expandtab
 let g:python3_host_prog = '/home/sam/.venv/neovim3/bin/python3'
 let g:vimtex_view_method = 'zathura'
 let g:tex_flavor = 'latex'
+let g:vimtex_compiler='latexmk'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdflatex="pdflatex --shell-escape %O %S"',
+    \   '--pdf'
+    \ ],
+    \}
 
 autocmd FileType gitcommit setlocal spell spelllang=en_gb
 autocmd FileType tex setlocal spell spelllang=en_gb
@@ -105,16 +113,16 @@ endif
 "
 "
 "sd
-inoremap <silent><expr> <C-TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><C-S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
+" use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
 " Use <c-space> to trigger completion.
 " 
 if has('nvim')
@@ -250,6 +258,12 @@ nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
+nnoremap <silent> <A-L> :vertical resize +1<CR>
+nnoremap <silent> <A-H> :vertical resize -1<CR>
+nnoremap <silent> <A-J> :resize +1<CR>
+nnoremap <silent> <A-K> :resize -1<CR>
+
+
 " Buffer naviagion
 
 nnoremap <silent> <A-l> :bn<CR>
@@ -271,12 +285,10 @@ let g:vim_markdown_math = 1
 " Ultisnips
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s-tab>"
 
 
-" Vimtex clean & compile command: doesnt work
-:command VimtexCCompile :exec 'VimtexCompile' | VimtexClean<CR>
 
 :let g:latex_to_unicode_auto = 1
 
@@ -288,8 +300,12 @@ nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap <silent> <leader>tn :colorscheme default <CR>
 nnoremap <silent> <leader>td :colorscheme dracula<CR>
 
+let g:goyo_width = 95
+nnoremap <silent> <leader>g :Goyo<CR>
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 " cursor settings
 
 ""set guicursor=i-ci:hor30-iCursor-blinkon100,n:ver40
-
-
