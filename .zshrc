@@ -30,10 +30,12 @@ fpath+=("$HOME/.zsh/pure")
 #ZSH_THEME="robbyrussell"
 #
 #
-autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL='λ'
-#PURE_PROMPT_VICMD_SYMBOL='ν'
-prompt pure
+#autoload -U promptinit; promptinit
+#PURE_PROMPT_SYMBOL='λ'
+##PURE_PROMPT_VICMD_SYMBOL='ν'
+#prompt pure
+
+eval "$(starship init zsh)"
 
 source $ZSH/oh-my-zsh.sh
 VIM_MODE_VICMD_KEY='^D'
@@ -115,6 +117,7 @@ export SSH_KEY_PUB=$HOME/.ssh/id_rsa.pub
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
+alias ls='lsd'
 alias xem='vim /home/sam/.xmonad/xmonad.hs'
 alias vem='vim /home/sam/.config/nvim/init.vim'
 alias dockers='sudo docker'

@@ -26,13 +26,13 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
                     , Run DiskU [("/", "<fn=1>\xf0c7 </fn>  hdd: <free> free")] [] 60
                       -- Runs custom script to check for pacman updates.
                       -- This script is in my dotfiles repo in .local/bin.
-        		    , Run Com "/home/sam/.scripts/pacupate" [] "pacupdate" 240
+        		    , Run Com "/home/sam/.scripts/pacupate" [] "pacupdate" 480
                       -- Runs a standard shell command 'uname -r' to get kernel version
                       -- Script that dynamically adjusts xmobar padding depending on number of trayer icons.
                       -- Prints out the left side items such as workspaces, layout, etc.
                       -- The workspaces are 'clickable' in my configs.
                     , Run UnsafeStdinReader
-                    , Run Com "/home/sam/.scripts/nowPlaying" [] "music" 10
+                    , Run Com "/home/sam/.scripts/nowPlaying" [] "music" 5
                     , Run MultiCoreTemp ["-t", "Temp: <avg>°C",
                           "-L", "60", "-H", "80",
                           "-l", "green", "-n", "yellow", "-h", "red",

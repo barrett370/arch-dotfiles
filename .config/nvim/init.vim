@@ -34,8 +34,9 @@ Plug 'dracula/vim', { 'name': 'dracula' }
 
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
-
-"Plug 'JuliaEditorSupport/julia-vim'
+Plug 'kdheepak/JuliaFormatter.vim'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'jpalardy/vim-slime'
 
 
 Plug 'cespare/vim-toml'
@@ -304,7 +305,7 @@ nnoremap <esc><esc> :silent! nohls<cr>
 nnoremap <silent> <leader>tn :colorscheme default <CR>
 nnoremap <silent> <leader>td :colorscheme dracula<CR>
 
-let g:goyo_width = 95
+let g:goyo_width = 160
 nnoremap <silent> <leader>g :Goyo<CR>
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -313,3 +314,16 @@ autocmd! User GoyoLeave Limelight!
 " cursor settings
 
 ""set guicursor=i-ci:hor30-iCursor-blinkon100,n:ver40
+function VimtexNoSyntax()
+    let g:vimtex_syntax_enabled = 0
+endfunction
+
+nnoremap <silent> <leader>so :call VimtexNoSyntax() <CR>
+
+
+
+let g:latex_to_unicode_auto = 1
+let g:latex_to_unicode_tab = 0
+let g:slime_target = "neovim"
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
