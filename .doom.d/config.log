@@ -1,0 +1,36 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.1.6)  8 JAN 2021 15:18
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**/home/sam/.doom.d/config.el
+(/home/sam/.doom.d/config.el
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-12-03> xparse <2020-03-03>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 ;
+     ;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.1 ;
+     ;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 19 strings out of 479383
+ 575 string characters out of 5875831
+ 267160 words of memory out of 5000000
+ 17229 multiletter control sequences out of 15000+600000
+ 403430 words of font info for 27 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 13i,0n,15p,109b,14s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
