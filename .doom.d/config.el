@@ -36,8 +36,8 @@
 (setq display-line-numbers-type t)
 
 ;;(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 18))
-(setq doom-font (font-spec :family "Hasklig" :size 18))
-;;(setq doom-font (font-spec :family "Fira Code" :size 18))
+;;(setq doom-font (font-spec :family "Hasklig" :size 18))
+(setq doom-font (font-spec :family "FiraCode" :size 18))
 ;;(setq doom-font (font-spec :family "Iosevka" :size 18))
 
 
@@ -108,3 +108,15 @@
 (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{prooftree}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{minted}" t)
+  )
+(setq pdf-latex-command "/home/sam/.scripts/latexcompile.sh")
+
