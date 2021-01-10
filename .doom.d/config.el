@@ -66,10 +66,6 @@
 (setq c-basic-offset 4)
 
 
-(global-set-key (kbd "A-l") 'enlarge-window-horizontally)
-(global-set-key (kbd "A-h") 'shrink-window-horizontally)
-(global-set-key (kbd "A-j") 'shrink-window)
-(global-set-key (kbd "A-k") 'enlarge-window)
 
 (setq-default TeX-master nil) ; Query for master file.
 
@@ -108,6 +104,15 @@
 (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") #'evil-window-right)
+
+(define-key evil-normal-state-map (kbd "M-l") #'next-buffer)
+(define-key evil-normal-state-map (kbd "M-h") #'previous-buffer)
+
+(define-key evil-normal-state-map (kbd "M-C-l") #'enlarge-window-horizontally)
+(define-key evil-normal-state-map (kbd "M-C-h") #'shrink-window-horizontally)
+(define-key evil-normal-state-map (kbd "M-C-j") #'enlarge-window)
+(define-key evil-normal-state-map (kbd "M-C-k") #'shrink-window)
+
 
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t)

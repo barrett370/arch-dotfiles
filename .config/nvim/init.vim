@@ -327,3 +327,5 @@ let g:latex_to_unicode_tab = 0
 let g:slime_target = "neovim"
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+
+imap ii <Esc>

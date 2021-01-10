@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-spt-check get-currently-playing | sed 's/\\//g'
+/home/sam/applications/spt-check get-currently-playing | sed 's/\\//g'
