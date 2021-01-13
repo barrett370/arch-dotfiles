@@ -73,7 +73,7 @@
      ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
      ("Other" "" TeX-run-command t t :help "Run an arbitrary command")))
  '(preview-LaTeX-command
-   '("%`%l -shell-escape \"\\nonstopmode\\nofiles\\PassOptionsToPackage{"
+   '("%`%l -shell-escape --synctex=1 \"\\nonstopmode\\nofiles\\PassOptionsToPackage{"
      ("," . preview-required-option-list)
      "}{preview}\\AtBeginDocument{\\ifx\\ifPreview\\undefined" preview-default-preamble "\\fi}\"%' %t"))
  '(preview-LaTeX-command-replacements nil)

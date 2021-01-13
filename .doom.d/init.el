@@ -110,6 +110,7 @@
        tty               ; improve the terminal Emacs experience
 
        :lang
+       apl
        (agda +local)             ; types of types of types of types...
        ;;cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
@@ -188,4 +189,5 @@
 
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
+
 

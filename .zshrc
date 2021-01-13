@@ -93,7 +93,7 @@ filetype off                  " required
 #. ~/.scripts/z.sh
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 export GOPATH="$HOME/go"
-export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin:$HOME/.local/bin":$HOME/.emacs.d/bin
+export PATH="$PATH:$GOPATH/bin:$HOME/misc/bolt-utils/bin:/Users/sbarrett/Library/Python/3.7/bin:$HOME/applications/flutter/bin:$HOME/applications/android-studio/bin:$HOME/.local/bin":$HOME/.emacs.d/bin:$HOME/.gem/ruby/2.7.0/bin
 #eval "$(rbenv init -)"
 export PATH=$PATH:~/.scripts/:~/.keys/:~/applications
 # opam configuration
@@ -117,6 +117,7 @@ export SSH_KEY_PUB=$HOME/.ssh/id_rsa.pub
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
+alias .f='dotfiles'
 alias ls='lsd'
 alias emacs='devour emacs'
 alias xem='vim /home/sam/.xmonad/xmonad.hs'
