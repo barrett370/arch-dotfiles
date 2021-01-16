@@ -69,8 +69,12 @@
 
 (setq pdf-latex-command "/home/sam/.scripts/latexcompile.sh")
 
-(add-hook 'latex-mode (lambda ()
-                           (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
+(after! evil-surround
+;  (add-hook 'latex-mode (lambda ()
+;                           (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
+  (add-hook 'latex-mode (lambda ()
+                           (push '(?i . ("\textit{" . "}")) evil-surround-pairs-alist)))
+)
 
 (after! org
   (add-to-list 'org-capture-templates
