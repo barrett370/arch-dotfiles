@@ -23,7 +23,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                     , Run Cpu ["-t", "<fn=1>\xf108 </fn> cpu: (<total>%)","-H","50","--high","red"] 30
                       -- Ram used number and percent
                     , Run Memory ["-t", "<fn=1>\xf233 </fn> mem: <used>M (<usedratio>%)"] 20
-		    , Run Com "/home/sam/.scripts/pacupate" [] "pacupdate" 480
+		    , Run Com "/home/sam/.scripts/pacupdate" [] "pacupdate" 480
                       -- The workspaces are 'clickable' in my configs.
                     , Run UnsafeStdinReader
 		    , Run Volume "default" "Master" [] 5
