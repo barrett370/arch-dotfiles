@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: cbv_reduction
+# key: rarrv
+# --
+\rightarrow_{v} $0

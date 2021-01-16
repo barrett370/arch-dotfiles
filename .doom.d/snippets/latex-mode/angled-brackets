@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: angled-brackets
+# key: ang
+# --
+\langle $1 \rangle $0

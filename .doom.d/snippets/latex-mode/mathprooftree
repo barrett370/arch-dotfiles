@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mathprooftree
+# key: mpt
+# --
+\begin{equation}
+    \begin{mathprooftree}
+        $0
+    \end{mathprooftree}
+\end{equation}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: if then else
+# key: ite
+# --
+\texttt{if } $1 \texttt{ then } $2 \texttt{ else } $3 $0
