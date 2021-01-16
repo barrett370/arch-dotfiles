@@ -70,8 +70,8 @@
 (setq pdf-latex-command "/home/sam/.scripts/latexcompile.sh")
 
 (after! evil-surround
-;  (add-hook 'latex-mode (lambda ()
-;                           (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
+  (add-hook 'latex-mode (lambda ()
+                           (push '(?\" . ("``" . "''")) evil-surround-pairs-alist)))
   (add-hook 'latex-mode (lambda ()
                            (push '(?i . ("\textit{" . "}")) evil-surround-pairs-alist)))
 )
@@ -80,19 +80,16 @@
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
-               "* APPLIED Company: %? \n Date: %U \n Role: \n Notes: \n")
+               "* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
              )
   )
 
 (after! org
   (add-to-list 'org-todo-keywords
-        '(sequence "APPLIED(a)" "INTERVIEW(i)" "OFFER(o)" "|" "ACCEPTED(y)" "REJECTED(r)")
+        '(sequence "APPLIED(a)" "INTERVIEW(i)" "OFFER(o)" "|" "ACCEPTED(y)" "REJECTED(r)" "NORESPONSE(n)")
         )
   (add-to-list 'org-todo-keyword-faces
                '("APPLIED" . "yellow")
-               )
-  (add-to-list 'org-todo-keyword-faces
-               '("REJECTED" . "red")
                )
   (add-to-list 'org-todo-keyword-faces
                '("INTERVIEW" . "blue")
@@ -103,4 +100,18 @@
   (add-to-list 'org-todo-keyword-faces
                '("ACCEPTED" . "green")
                )
+  (add-to-list 'org-todo-keyword-faces
+               '("REJECTED" . "red")
+               )
+  (add-to-list 'org-todo-keyword-faces
+               '("NORESPONSE" . "red")
+               )
+  )
+
+(defun update-job-table ()
+  (interactive)
+  (shell-command "/home/sam/.scripts/jobapps2table.py > /home/sam/org/jobappstable.org")
+  (progn
+    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (save-buffer)
+    )
   )

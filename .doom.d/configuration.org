@@ -87,7 +87,7 @@
 (define-key evil-normal-state-map (kbd "M-C-j") #'enlarge-window)
 (define-key evil-normal-state-map (kbd "M-C-k") #'shrink-window)
 #+end_src
-** LaTeX Config
+** \LaTeX Config
 
 #+begin_src emacs-lisp
 (setq +latex-viewers '(zathura))
@@ -124,12 +124,11 @@
 
 *** Capture Templates
 #+begin_src emacs-lisp
-
 (after! org
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
-               "* APPLIED Company: %? \n Date: %U \n Role: \n Notes: \n")
+               "* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
              )
   )
 #+end_src
@@ -138,13 +137,10 @@
 #+begin_src emacs-lisp
 (after! org
   (add-to-list 'org-todo-keywords
-        '(sequence "APPLIED(a)" "INTERVIEW(i)" "OFFER(o)" "|" "ACCEPTED(y)" "REJECTED(r)")
+        '(sequence "APPLIED(a)" "INTERVIEW(i)" "OFFER(o)" "|" "ACCEPTED(y)" "REJECTED(r)" "NORESPONSE(n)")
         )
   (add-to-list 'org-todo-keyword-faces
                '("APPLIED" . "yellow")
-               )
-  (add-to-list 'org-todo-keyword-faces
-               '("REJECTED" . "red")
                )
   (add-to-list 'org-todo-keyword-faces
                '("INTERVIEW" . "blue")
@@ -155,7 +151,22 @@
   (add-to-list 'org-todo-keyword-faces
                '("ACCEPTED" . "green")
                )
+  (add-to-list 'org-todo-keyword-faces
+               '("REJECTED" . "red")
+               )
+  (add-to-list 'org-todo-keyword-faces
+               '("NORESPONSE" . "red")
+               )
   )
 
 #+end_src
-**
+*** Job Application Table generation
+#+begin_src emacs-lisp
+(defun update-job-table ()
+  (interactive)
+  (shell-command "/home/sam/.scripts/jobapps2table.py > /home/sam/org/jobappstable.org")
+  (progn
+    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (save-buffer)
+    )
+  )
+#+end_src
