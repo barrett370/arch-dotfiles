@@ -112,6 +112,6 @@
   (interactive)
   (shell-command "/home/sam/.scripts/jobapps2table.py > /home/sam/org/jobappstable.org")
   (progn
-    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (save-buffer)
+    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (goto-line 4) (org-table-goto-column 3) (org-table-sort-lines nil ?t) (save-buffer)
     )
   )

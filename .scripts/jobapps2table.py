@@ -3,7 +3,8 @@ def get_applications():
     apps_file = open("/home/sam/org/job-applications.org", "r").read()
     jobs = apps_file.split("*")[1:]
     jobs = list(map(lambda s: s[1:].split(" ", 1), jobs))
-    jobs = list(map(lambda j: [j[0]] + j[1].split("\n")[0:3], jobs))
+    jobs = list(map(lambda j: [j[0]] + j[1].split("\n"), jobs))
+    jobs = list(map(lambda j: list(filter(lambda s: s!='', j)), jobs))
     return jobs
 
 
