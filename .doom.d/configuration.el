@@ -3,7 +3,7 @@
 
 (setq doom-theme 'doom-one)
 (setq org-directory "~/org/")
-(setq display-line-numbers-type t)
+(global-linum-mode 1)
 (setq doom-font (font-spec :family "FiraCode" :size 18))
 
 (setq-default indent-tabs-mode nil)
@@ -80,7 +80,7 @@
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
-               "* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
+               "\n* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
              )
   )
 
@@ -112,6 +112,23 @@
   (interactive)
   (shell-command "/home/sam/.scripts/jobapps2table.py > /home/sam/org/jobappstable.org")
   (progn
-    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (goto-line 4) (org-table-goto-column 3) (org-table-sort-lines nil ?t) (save-buffer)
+    (find-file "/home/sam/org/jobappstable.org")
+    (org-table-iterate-buffer-tables)
+    (goto-line 4)
+    (org-table-goto-column 3)
+    (org-table-sort-lines nil ?t)
+    (save-buffer)
     )
   )
+
+(setq
+    org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+)
+
+(defun nolinum ()
+  (global-linum-mode 0)
+)
+(add-hook 'demo-it-mode-adv-hook 'nolinum   )
+
+'org-tree-slide-display-header-toggle
+'org-tree-slide-slide-in-effect-toggle

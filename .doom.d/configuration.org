@@ -12,7 +12,7 @@
 
 (setq doom-theme 'doom-one)
 (setq org-directory "~/org/")
-(setq display-line-numbers-type t)
+(global-linum-mode 1)
 (setq doom-font (font-spec :family "FiraCode" :size 18))
 #+end_src
 **** Here are some additional functions/macros that could help you configure Doom:
@@ -119,7 +119,6 @@
                            (push '(?i . ("\textit{" . "}")) evil-surround-pairs-alist)))
 )
 #+end_src
-
 ** Org Configuration
 
 *** Capture Templates
@@ -128,7 +127,7 @@
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
-               "* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
+               "\n* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
              )
   )
 #+end_src
@@ -166,7 +165,31 @@
   (interactive)
   (shell-command "/home/sam/.scripts/jobapps2table.py > /home/sam/org/jobappstable.org")
   (progn
-    (find-file "/home/sam/org/jobappstable.org") (org-table-iterate-buffer-tables) (goto-line 4) (org-table-goto-column 3) (org-table-sort-lines nil ?t) (save-buffer)
+    (find-file "/home/sam/org/jobappstable.org")
+    (org-table-iterate-buffer-tables)
+    (goto-line 4)
+    (org-table-goto-column 3)
+    (org-table-sort-lines nil ?t)
+    (save-buffer)
     )
   )
+#+end_src
+
+*** Pretty bullets
+#+begin_src emacs-lisp
+(setq
+    org-superstar-headline-bullets-list '("⁖" "◉" "○" "✸" "✿")
+)
+#+end_src
+*** Hide line numbers when in demo-it mode
+#+begin_src emacs-lisp
+(defun nolinum ()
+  (global-linum-mode 0)
+)
+(add-hook 'demo-it-mode-adv-hook 'nolinum   )
+#+end_src
+*** org-tree-slide settings
+#+begin_src emacs-lisp
+'org-tree-slide-display-header-toggle
+'org-tree-slide-slide-in-effect-toggle
 #+end_src

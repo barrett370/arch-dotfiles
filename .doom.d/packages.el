@@ -51,3 +51,7 @@
 (package! apl
   :recipe (:host github :repo "lokedhs/gnu-apl-mode"))
 
+(package! demo-it
+  :recipe (:host github :repo "howardabrams/demo-it"))
+
+(package! org-tree-slide)
