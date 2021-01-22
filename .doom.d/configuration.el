@@ -80,7 +80,7 @@
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
-               "\n* APPLIED Company: %? \nDate: %U \nRole: \n Notes: \n")
+               "\n* APPLIED Company: %^{name} \nDate: %U \nRole: [[%^{title}][%^{url}]] \nNotes: %? \n")
              )
   )
 
