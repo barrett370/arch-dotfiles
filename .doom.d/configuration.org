@@ -95,6 +95,10 @@
 (define-key evil-normal-state-map (kbd "M-C-j") #'enlarge-window)
 (define-key evil-normal-state-map (kbd "M-C-k") #'shrink-window)
 #+end_src
+**** Justfile syntax
+#+begin_src emacs-lisp
+(add-to-list 'auto-mode-alist '("Justfile" . makefile-mode))
+#+end_src
 ** \LaTeX Config
 
 #+begin_src emacs-lisp
@@ -144,6 +148,18 @@
                "\n* APPLIED Company: %^{name} \nDate: %U \nRole: [[%^{title}][%^{url}]] \nNotes: %? \n")
              )
   )
+(after! org
+  (add-to-list 'org-capture-templates
+             '("L" "New weekly log" entry
+               (file (lambda ()
+                       (concat
+                        (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-"
+                                (org-read-date nil nil "-mon" nil (org-read-date nil t "-7d")))
+                        ".org")))
+               "#+TITLE: Log: Week %^{week number}\n#+OPTIONS: toc:nil \n\n %?")
+             )
+  )
+
 #+end_src
 
 *** Todo Keywords
@@ -212,3 +228,6 @@
 (setq matlab-shell-command "start-matlab.sh")
 (setq matlab-shell-command-switches (list "-nodesktop"))
 #+end_src
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git

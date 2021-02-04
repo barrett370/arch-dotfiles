@@ -10,6 +10,7 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=13:antialias=true:hinting=t
        , bgColor = "#292d3e"
        , fgColor = "#f07178"
        , position = Static { xpos = 1920, ypos =4, width = 2560, height = 30 }
+       --, position = OnScreen 1 Top
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True

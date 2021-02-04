@@ -22,7 +22,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'joshdick/onedark.vim'
 
 Plug 'ervandew/supertab'
-Plug 'roxma/vim-paste-easy'
+"Plug 'roxma/vim-paste-easy'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'rust-lang/rust.vim'

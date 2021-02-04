@@ -60,6 +60,8 @@
 (define-key evil-normal-state-map (kbd "M-C-j") #'enlarge-window)
 (define-key evil-normal-state-map (kbd "M-C-k") #'shrink-window)
 
+(add-to-list 'auto-mode-alist '("Justfile" . makefile-mode))
+
 (setq +latex-viewers '(zathura))
 (setq LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
 
@@ -88,11 +90,26 @@
                            (push '(?i . ("\textit{" . "}")) evil-surround-pairs-alist)))
 )
 
+(defun get-log-filename ()
+  "Visit a new file named by date at beginning of week"
+  (interactive)
+  (concat
+   (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-"
+           (org-read-date nil nil "-1d" nil (org-read-date nil t "-7d")))
+  ".org"))
+
 (after! org
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
                (file "~/org/job-applications.org" )
                "\n* APPLIED Company: %^{name} \nDate: %U \nRole: [[%^{title}][%^{url}]] \nNotes: %? \n")
+             )
+  )
+(after! org
+  (add-to-list 'org-capture-templates
+             '("L" "New weekly log" entry
+               (file (lambda () (concat (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-" (org-read-date nil nil "-mon" nil (org-read-date nil t "-7d"))) ".org")) )
+               "* Log: Week %^{week number}\n\n %?")
              )
   )
 
