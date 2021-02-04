@@ -55,3 +55,6 @@
   :recipe (:host github :repo "howardabrams/demo-it"))
 
 (package! org-tree-slide)
+
+(package! matlab
+  :recipe (:host nil :repo "https://git.code.sf.net/p/matlab-emacs/src"))

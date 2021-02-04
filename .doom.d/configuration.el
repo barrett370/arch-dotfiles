@@ -1,9 +1,12 @@
 (setq user-full-name "Sam Barrett"
       user-mail-address "barrett370@gmail.com")
 
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(setq ispell-dictionary "british-ise")
 (setq doom-theme 'doom-one)
 (setq org-directory "~/org/")
-(global-linum-mode 1)
+(global-linum-mode 0)
+(setq display-line-numbers-type t)
 (setq doom-font (font-spec :family "FiraCode" :size 18))
 
 (setq-default indent-tabs-mode nil)
@@ -41,6 +44,9 @@
         "*/_region_.log"
         "*/_region_.tex"))
 
+;;(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+
 (define-key evil-normal-state-map (kbd "C-h") #'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") #'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") #'evil-window-up)
@@ -65,6 +71,12 @@
   )
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{minted}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{enumerate}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{itemize}" t)
   )
 
 (setq pdf-latex-command "/home/sam/.scripts/latexcompile.sh")
@@ -130,5 +142,8 @@
 )
 (add-hook 'demo-it-mode-adv-hook 'nolinum   )
 
-'org-tree-slide-display-header-toggle
-'org-tree-slide-slide-in-effect-toggle
+(setq org-tree-slide-header nil)
+(setq org-tree-slide-slide-in-effect nil)
+
+(setq matlab-shell-command "start-matlab.sh")
+(setq matlab-shell-command-switches (list "-nodesktop"))

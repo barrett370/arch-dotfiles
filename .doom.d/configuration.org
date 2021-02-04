@@ -9,10 +9,12 @@
 #+end_src
 *** Doom Config
 #+begin_src emacs-lisp
-
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(setq ispell-dictionary "british-ise")
 (setq doom-theme 'doom-one)
 (setq org-directory "~/org/")
-(global-linum-mode 1)
+(global-linum-mode 0)
+(setq display-line-numbers-type t)
 (setq doom-font (font-spec :family "FiraCode" :size 18))
 #+end_src
 **** Here are some additional functions/macros that could help you configure Doom:
@@ -70,6 +72,12 @@
         "*/_region_.log"
         "*/_region_.tex"))
 #+end_src
+**** Opacity
+
+#+begin_src emacs-lisp
+;;(set-frame-parameter (selected-frame) 'alpha '(85 . 50))
+;;(add-to-list 'default-frame-alist '(alpha . (85 . 50)))
+#+end_src
 
 **** Evil window & buffer navigation keybinds
 
@@ -104,6 +112,12 @@
   )
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{minted}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{enumerate}" t)
+  )
+(eval-after-load "preview"
+  '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{itemize}" t)
   )
 #+end_src
 *** Compilation command
@@ -190,9 +204,11 @@
 #+end_src
 *** org-tree-slide settings
 #+begin_src emacs-lisp
-'org-tree-slide-display-header-toggle
-'org-tree-slide-slide-in-effect-toggle
+(setq org-tree-slide-header nil)
+(setq org-tree-slide-slide-in-effect nil)
 #+end_src
-
-#+RESULTS:
-: org-tree-slide-slide-in-effect-toggle
+** Matlab Config
+#+begin_src emacs-lisp
+(setq matlab-shell-command "start-matlab.sh")
+(setq matlab-shell-command-switches (list "-nodesktop"))
+#+end_src

@@ -117,6 +117,7 @@ export SSH_KEY_PUB=$HOME/.ssh/id_rsa.pub
 #initialize Z (https://github.com/rupa/z) 
 #. ~/z.sh
 # Alii: 
+alias matlab='_JAVA_AWT_WM_NONREPARENTING=1 matlab'
 alias .f='dotfiles'
 alias ls='lsd'
 alias emacs='devour emacs'
@@ -263,3 +264,5 @@ typeset -ag chpwd_functions;
 if [[ -z ${chpwd_functions[(r)_direnv_hook]} ]]; then
   chpwd_functions=( _direnv_hook ${chpwd_functions[@]} )
 fi
+
+
