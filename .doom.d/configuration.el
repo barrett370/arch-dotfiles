@@ -64,6 +64,7 @@
 
 (setq +latex-viewers '(zathura))
 (setq LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
+;(add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
 
 (eval-after-load "preview"
   '(add-to-list 'preview-default-preamble "\\PreviewEnvironment{tikzpicture}" t)
@@ -90,14 +91,6 @@
                            (push '(?i . ("\textit{" . "}")) evil-surround-pairs-alist)))
 )
 
-(defun get-log-filename ()
-  "Visit a new file named by date at beginning of week"
-  (interactive)
-  (concat
-   (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-"
-           (org-read-date nil nil "-1d" nil (org-read-date nil t "-7d")))
-  ".org"))
-
 (after! org
   (add-to-list 'org-capture-templates
              '("J" "New Job application" entry
@@ -107,11 +100,21 @@
   )
 (after! org
   (add-to-list 'org-capture-templates
-             '("L" "New weekly log" entry
-               (file (lambda () (concat (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-" (org-read-date nil nil "-mon" nil (org-read-date nil t "-7d"))) ".org")) )
-               "* Log: Week %^{week number}\n\n %?")
+             '("l" "New weekly log" plain
+               (file (lambda ()
+                       (concat
+                        (concat "~/git-clones/Y4-Diss/research/logs/log-"
+                                (org-read-date nil nil "-mon" nil nil ))
+                        ".org")))
+               "#+TITLE: Log Week %^{weeknumber} \n#+OPTIONS: toc:nil \n\n %?"
+               )
              )
   )
+(after! org
+  (add-to-list 'org-capture-templates
+               '("T" "Task" entry (file+headline "/home/sam/org/notes.org" "Tasks") "* TODO %?
+  %u
+  %a" :prepend t)))
 
 (after! org
   (add-to-list 'org-todo-keywords
@@ -164,3 +167,7 @@
 
 (setq matlab-shell-command "start-matlab.sh")
 (setq matlab-shell-command-switches (list "-nodesktop"))
+
+(after! lsp-julia
+    (setq lsp-julia-default-environment "~/.julia/environments/v1.5/")
+)

@@ -27,11 +27,11 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
 		    , Run Com "/home/sam/.scripts/pacupdate" [] "pacupdate" 480
                       -- The workspaces are 'clickable' in my configs.
                     , Run UnsafeStdinReader
-		    , Run Volume "default" "Master" [] 5
+--		    , Run Volume "default" "Master" [] 5
         , Run Com "curl" ["http://192.168.1.146:1090/services"] "services" 60
         , Run Com "curl" ["http://192.168.1.146:1090/temperature"] "server-temp" 60
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <action=`xdotool key control+alt+g`><icon=haskell_20.xpm/> </action><fc=#666666></fc> %UnsafeStdinReader% }{<fc=#666666><fn=2></fn> </fc><fc=#b3afc2></fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %services% </fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %server-temp% </fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#FF5555> %memory% </fc><fc=#666666> <fn=2></fn></fc><fc=#666666> <fn=2>|</fn></fc> <fc=#c3e88d> %enp4s0% </fc> <fc=#666666> <fn=2>|</fn></fc> %default:Master% "
+       , template = " <action=`xdotool key control+alt+g`><icon=haskell_20.xpm/> </action><fc=#666666></fc> %UnsafeStdinReader% }{<fc=#666666><fn=2></fn> </fc><fc=#b3afc2></fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %services% </fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %server-temp% </fc><fc=#666666> <fn=2>|</fn></fc><fc=#FFB86C> %cpu% </fc><fc=#666666> <fn=2>|</fn></fc> <fc=#FF5555> %memory% </fc><fc=#666666> <fn=2></fn></fc><fc=#666666> <fn=2>|</fn></fc> <fc=#c3e88d> %enp4s0% </fc>"
        }

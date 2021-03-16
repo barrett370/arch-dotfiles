@@ -72,12 +72,18 @@
      ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
      ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
      ("Other" "" TeX-run-command t t :help "Run an arbitrary command")))
+ '(cdlatex-math-modify-alist '((112 "^{prime}" "" t nil nil)))
+ '(cdlatex-math-modify-prefix 35)
+ '(company-idle-delay 0.3)
+ '(eglot-connect-timeout 1000 t)
+ '(lsp-julia-default-environment "~/.julia/environments/v1.5" t)
  '(matlab-completion-technique 'increment)
  '(matlab-fill-code t)
  '(matlab-indent-function-body 'guess)
  '(matlab-shell-ask-MATLAB-for-completions nil)
  '(org-agenda-files
-   '("~/git-clones/Y4-Diss/tasks.org" "/home/sam/org/job-applications.org" "/home/sam/org/journal.org" "/home/sam/org/notes.org" "/home/sam/org/todo.org"))
+   '("~/git-clones/Y4-Diss/todo.org" "~/git-clones/Y4-Diss/tasks.org" "/home/sam/org/job-applications.org" "/home/sam/org/journal.org" "/home/sam/org/notes.org" "/home/sam/org/todo.org"))
+ '(package-selected-packages '(org-pomodoro json-rpc-server json-rpc eglot-jl))
  '(preview-LaTeX-command
    '("%`%l -shell-escape --synctex=1 \"\\nonstopmode\\nofiles\\PassOptionsToPackage{"
      ("," . preview-required-option-list)
@@ -85,7 +91,10 @@
  '(preview-LaTeX-command-replacements nil)
  '(preview-default-option-list
    '("displaymath" "floats" "graphics" "textmath" "sections" "footnotes"))
- '(safe-local-variable-values '((TeX-command-extra-options . "-shell-escape"))))
+ '(safe-local-variable-values
+   '((git-commit-major-mode . git-commit-elisp-text-mode)
+     (TeX-command-extra-options . "-shell-escape")))
+ '(shell-escape-mode "-shell-escape"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

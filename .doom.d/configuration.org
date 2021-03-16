@@ -99,11 +99,14 @@
 #+begin_src emacs-lisp
 (add-to-list 'auto-mode-alist '("Justfile" . makefile-mode))
 #+end_src
+*** Remove annoying ligatures:
+
 ** \LaTeX Config
 
 #+begin_src emacs-lisp
 (setq +latex-viewers '(zathura))
 (setq LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
+;(add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
 #+end_src
 
 *** Preview environments in buffer
@@ -150,15 +153,21 @@
   )
 (after! org
   (add-to-list 'org-capture-templates
-             '("L" "New weekly log" entry
+             '("l" "New weekly log" plain
                (file (lambda ()
                        (concat
-                        (concat "/home/sam/git-clones/Y4-Diss/research/logs/log-"
-                                (org-read-date nil nil "-mon" nil (org-read-date nil t "-7d")))
+                        (concat "~/git-clones/Y4-Diss/research/logs/log-"
+                                (org-read-date nil nil "-mon" nil nil ))
                         ".org")))
-               "#+TITLE: Log: Week %^{week number}\n#+OPTIONS: toc:nil \n\n %?")
+               "#+TITLE: Log Week %^{weeknumber} \n#+OPTIONS: toc:nil \n\n %?"
+               )
              )
   )
+(after! org
+  (add-to-list 'org-capture-templates
+               '("T" "Task" entry (file+headline "/home/sam/org/notes.org" "Tasks") "* TODO %?
+  %u
+  %a" :prepend t)))
 
 #+end_src
 
@@ -231,3 +240,10 @@
 fatal: not a git repository (or any of the parent directories): .git
 fatal: not a git repository (or any of the parent directories): .git
 fatal: not a git repository (or any of the parent directories): .git
+** Julia Config
+*** Language server configuration
+#+begin_src emacs-lisp
+(after! lsp-julia
+    (setq lsp-julia-default-environment "~/.julia/environments/v1.5/")
+)
+#+end_src

@@ -58,3 +58,8 @@
 
 (package! matlab
   :recipe (:host nil :repo "https://git.code.sf.net/p/matlab-emacs/src"))
+
+(package! lsp-julia :recipe (:host github :repo "non-jedi/lsp-julia"))
+
+(package! eglot-jl)
+(package! org-pomodoro)
