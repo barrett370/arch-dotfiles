@@ -36,7 +36,7 @@ fpath+=("$HOME/.zsh/pure")
 #prompt pure
 
 eval "$(starship init zsh)"
-
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 VIM_MODE_VICMD_KEY='^D'
 source <(antibody init)
@@ -234,11 +234,11 @@ function options() {
 
 eval "$(gh completion -s zsh)"
 
-source /usr/share/fzf/key-bindings.zsh 
-source /usr/share/fzf/completion.zsh 
+ #source /usr/share/fzf/key-bindings.zsh 
+ #source /usr/share/fzf/completion.zsh 
 #powerline-daemon -q
 #. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/sam/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/path.zsh.inc'; fi
@@ -247,7 +247,7 @@ if [ -f '/home/sam/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/google-cl
 if [ -f '/home/sam/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-source /home/sam/.secrets
+source ~/.secrets
 [ -f "/home/sam/.ghcup/env" ] && source "/home/sam/.ghcup/env" # ghcup-env
 
 # >>>> Vagrant command completion (start)
