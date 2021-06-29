@@ -257,7 +257,7 @@ compinit
 
 _direnv_hook() {
   trap -- '' SIGINT;
-  eval "$("/usr/bin/direnv" export zsh)";
+  eval "$("/usr/local/bin/direnv" export zsh)";
   trap - SIGINT;
 }
 typeset -ag chpwd_functions;
