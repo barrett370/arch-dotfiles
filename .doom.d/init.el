@@ -112,7 +112,7 @@
 
        :lang
        apl
-       (agda +local)             ; types of types of types of types...
+       ;;(agda +local)             ; types of types of types of types...
        ;;cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
@@ -190,5 +190,5 @@
        ;;literate
        (default +bindings +smartparens))
 
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;;(load-file (let ((coding-system-for-read 'utf-8))
+ ;;               (shell-command-to-string "agda-mode locate")))
